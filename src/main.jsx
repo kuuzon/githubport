@@ -12,7 +12,7 @@ import './scss/main.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/githubport">
       <ThemeProvider>
         <App />
       </ThemeProvider>
