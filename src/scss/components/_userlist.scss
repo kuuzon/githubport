@@ -1,0 +1,26 @@
+@use '../abstracts/' as *; 
+
+.userlist {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin: 2rem 0;
+
+  .userbox {
+    flex: 1 33%;
+    margin: 1rem 0;
+    text-align: center;
+
+    img {
+      max-width: 200px;
+      border: 2px $complementaryColor solid;
+      border-radius: 50%;
+      transition: border 0.2s ease-in-out;
+
+      &:hover {
+        border: 4px $brandColor solid;
+      }
+    }
+  }
+}

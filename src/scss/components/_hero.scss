@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+%banner {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 40px;
+  text-align: center;
+}
+
+#light .hero-banner {
+  @extend %banner;
+  background: $primaryColor;
+}
+
+#dark .hero-banner {
+  @extend %banner;
+  background: $complementarySkewColor;
+}

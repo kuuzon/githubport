@@ -1,0 +1,15 @@
+@use '../abstracts/' as *;
+
+%footer {
+  text-align: center;
+}
+
+#light footer {
+  @extend %footer;
+  @include setBackground($brandColor);
+}
+
+#dark footer {
+  @extend %footer;
+  @include setBackground($complementarySkewColor);
+}

@@ -1,0 +1,25 @@
+@use '../abstracts/' as *;
+
+#light .navbar {
+  @include setBackground($brandColor);
+
+  .navbar-brand, .nav-link {  
+    color: $primaryColor;
+
+    &:hover {  
+      color: $complementarySkewColor;
+    }
+  }
+}
+
+#dark .navbar {
+  @include setBackground($complementarySkewColor);
+
+  .navbar-brand, .nav-link {  
+    color: $primaryColor;
+
+    &:hover {  
+      color: $brandColor;
+    }
+  }
+}
