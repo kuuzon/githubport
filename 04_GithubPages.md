@@ -68,7 +68,7 @@
 
   - **NOTE:** Using CLI commands, the same process would be:
 
-    - Add all files to local git: `git add -a`
+    - Add all files to local git: `git add .`
 
     - Commit to local main: `git commit -m "add deploy workflow"`
 
@@ -78,35 +78,8 @@
 
 **5. Oversee worflow build action & check deployment**
 
-  - Go back to your GitHub repo & you should see a little yellow lightbulb next to the commit - **click this!** (if not, just click the `Actions` tab)
+  - Go back to your GitHub repo & you should see a little yellow lightbulb = currently building the pushed workflow
 
-  - 
+  - Go to: `Actions` top tab & click on the `deploy` which should have a yellow spinner or green light on it
 
-&nbsp;
-
-4. We setup our file to deploy to build, using a package called "gh-pages"
-
-    - In our local project, install the package as a dev dependency: `npm i -D gh-pages`
-
-    - Add two scripts which sync with gh-pages: 
-      - `"predeploy": "npm run build",`
-      - `"deploy": "gh-pages -d build",`
-
-    - Then run the deploy which will build the production files & deploy to github pages: `npm run deploy`
-
-&nbsp;
-
-5. Check the domain which is setup in your package.json: `"https://YOUR-USERNAME.github.io/YOUR-REPO-NAME",`
-
-  "homepage": "https://kuuzon.github.io/",
-
-&nbsp;
-
-### ISSUE: GITHUB PAGES CAN ONLY RENDER A SINGLE REACT PAGE APPLICATION
-There are proposed workarounds, but it does involve a bit of tinkering with your React.js project
-- Question the utility when we compare against ease of other hosts!
-
-- Proposed solution for relative links: https://maximorlov.com/deploying-to-github-pages-dont-forget-to-fix-your-links/
-    - Incorporate a prop/attribute into the BrowserRouter: `<Router basename="/abdemo">`
-
-    - We will test this in class to see if the workaround works (check `App.js` - we have changed the `<Router>`)
+  - Once complete - see if you can now view the deployed URL link = LIVE (*hopefully!*) @ `https://YOUR-USERNAME.github.io/YOUR-REPO-NAME` (e.g. `https://kuuzon.github.io/githubport`)
