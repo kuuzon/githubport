@@ -62,6 +62,8 @@ For React.js, we need something a little more tailored, as we need to transform 
 
 5. Check the domain which is setup in your package.json: `"https://YOUR-USERNAME.github.io/YOUR-REPO-NAME",`
 
+  "homepage": "https://kuuzon.github.io/",
+
 &nbsp;
 
 ### ISSUE: GITHUB PAGES CAN ONLY RENDER A SINGLE REACT PAGE APPLICATION
