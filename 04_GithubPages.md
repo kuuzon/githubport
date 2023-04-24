@@ -4,47 +4,83 @@
 
 **SERVERLESS / STATIC HOST:** GitHub Pages - https://pages.github.com/:
 
+- GitHub pages is a little different to our other options, as it deploys from the Repo itself
+
+- For vanilla HTML/CSS sites, its a fairly easy process.  However, for framework applications, like Vite + React.js, GitHub needs to somehow build the application in the Repo:
+
+    - **PREVIOUSLY:** You had to install npm packages to have the application build itself ready for GitHub & ship the `build`/`dist` file to GitHub = VERY clunky
+
+    - **NEW:** GitHub has now created software in the application which sets up a "workflow" to build the application in the repo
+
+**DOCUMENTATION:**
+
 - Instructions for vanilla HTML/CSS: https://pages.github.com/
 
-- Video guide (*missing some steps*) for React.js: https://youtu.be/2hM5viLMJpA
+- Video guide on Vite + Github Actions: https://youtu.be/MKw-IriprJY
 
 - Instructions for Vite GitHub Pages setup: https://vitejs.dev/guide/static-deploy.html#github-pages
 
 &nbsp;
 
-For React.js, we need something a little more tailored, as we need to transform it to production mode
-
-- IMPORTANT: We will be mainly using CLI to init git, setup remote, commit to master & push to the remote git
-
-&nbsp;
-
 ## [B] BASIC STEPS
 
-**1. Create new Repo on GitHub for the Project**
+**1. Create new Local Repo & Publish to GitHub**
 
-    - Name of the repo will also be the name of your github.io subdomain name
+  - Using GitHub Desktop, Add or Create New **LOCAL** Repo from your existing portfolio project
 
-&nbsp;
-
-**2. Open your local project in VSCode:**
-
-    - Install modules: `npm i`
-      
-    - Setup git: `git init`
-
-    - Setup remote git: `git remote add origin https://github.com/kuuzon/YOUR-REPO-NAME.git`
-
-    - Add all files to local git: `git add -A`
-
-    - Commit to local main: `git commit -m "Initial commit"`
-
-    - Push to GitHub: `git branch -M main` -> `git push -u origin main`
+  - One Git setup, publish the repo to GitHub **AND** ensure it is **PUBLIC** (*you need to PAY if you want to publish a private repo to GitHub Pages*)
+  
+  - **NOTE:** The name of the repo will also be the **name of your github.io subdomain name**
 
 &nbsp;
 
-3. Now we should set our GitHub repo filled with our project.  We now want to begin linking the repo project to our GitHub pages domain
+**2. Review GitHub Actions Hub & Change Permissions**
 
-    - In package.json, add at the start: `"homepage": "https://YOUR-USERNAME.github.io/YOUR-REPO-NAME",`
+  - This workflow build order requires both read & write permissions to fully create our `dist` file
+
+  - In your repo, go to: `Settings` (*on the top menu*) -> `Actions` (*on the left menu*) -> `General` (*sub-menu*)
+
+  - Scroll down to bottom heading: `Workflow permissions` & change to `Read & write permissions` + hit `Save`
+
+&nbsp;
+
+**3. Configure your base URL for hosting on a GitHub pages sub-domain:**
+
+  - With GitHub pages, your domain will effectively be your GitHub profile + your repo name
+
+    - EXAMPLE SUB-DOMAIN: `https://YOUR-USERNAME.github.io/YOUR-REPO-NAME`
+
+  - **AS A RESULT** - You need to tell your Vite application that the BASE url starts from this repo:
+
+    - (a) Set the react-router-dom base to the subdomain subdomain in `main.jsx`: `<BrowserRouter basename="/SUBDOMAIN-PATH">` (e.g. `basename="/githubport"`)  
+
+    - (b) Set the `base` to the subdomain in the `vite.config.ts` file: `base: "/<SUBDOMAIN>/"` (e.g. `base: "/githubport"`)
+
+&nbsp;
+
+**4. Configure the GitHub workflow `.yml` file to build the application on GitHub:**
+
+  - Create the following directory path: `/.github` -> `/workflows` -> `deploy.yml`
+
+  - Copy the template workflow build in the [Vite docs](https://vitejs.dev/guide/static-deploy.html#github-pages) into `deploy.yml`
+
+  - Using GitHub desktop, commit & push the change to GitHub
+
+  - **NOTE:** Using CLI commands, the same process would be:
+
+    - Add all files to local git: `git add -a`
+
+    - Commit to local main: `git commit -m "add deploy workflow"`
+
+    - Push to GitHub: `git push`
+
+&nbsp;
+
+**5. Oversee worflow build action & check deployment**
+
+  - Go back to your GitHub repo & you should see a little yellow lightbulb next to the commit - **click this!** (if not, just click the `Actions` tab)
+
+  - 
 
 &nbsp;
 
