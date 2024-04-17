@@ -11,8 +11,7 @@ import './scss/main.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      {/* (iii) Import Provider into main.js */}
+    <BrowserRouter basename="/githubport">
       <ThemeProvider>
         <App />
       </ThemeProvider>
