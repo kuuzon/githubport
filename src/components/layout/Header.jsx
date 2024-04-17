@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import { Navbar, Nav } from "react-bootstrap";
 import { VscGithub } from "react-icons/vsc";
-g
+
 import styles from './Header.module.scss';
 import useTheme from '../../hooks/useTheme';
 import ThemeToggler from "../common/ThemeToggler";
@@ -18,7 +18,6 @@ const Header = () => {
           <VscGithub className={styles.icon} style={{color: 'aqua'}} /> githubPort
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
-
         <Navbar.Collapse id='basic-navbar-nav'>
           {/* LEFT-HAND NAVS */}
           <Nav className='me-auto'>
