@@ -1,0 +1,46 @@
+@use '../../scss/abstracts/' as *;
+
+// C. Propogation Example 1
+.light {
+  @include setBackground($brandColor);
+  margin-bottom: 2rem;
+
+  .navLink {  
+    color: $primaryColor;
+
+    &:hover {  
+      color: $complementarySkewColor;
+    }
+    &:focus {
+      color: $complementarySkewColor;
+    }
+  }
+
+  .icon {
+    margin-bottom: 3px;
+    margin-right: 10px;
+    font-size: 1.5rem;
+  }
+}
+
+.dark {
+  @include setBackground(darken($complementaryColor, 3%));
+  margin-bottom: 2rem;
+
+  .navLink {  
+    color: $primaryColor;
+
+    &:hover {  
+      color: $brandColor;
+    }
+    &:focus {
+      color: $brandColor;
+    }
+  }
+
+  .icon {
+    margin-bottom: 3px;
+    margin-right: 10px;
+    font-size: 1.5rem;
+  }
+}

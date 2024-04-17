@@ -1,0 +1,18 @@
+@use '../../scss/abstracts/' as *;
+
+%btn {
+  font-size: 1.9rem;
+}
+
+.toggleContainer {
+  display: inline-block;
+  
+  .lightToggle {
+    @extend %btn;
+    color: $lightMode;
+  }
+  .darkToggle {
+    @extend %btn;
+    color: $darkMode;
+  }
+}

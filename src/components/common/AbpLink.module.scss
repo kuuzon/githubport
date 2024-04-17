@@ -1,0 +1,28 @@
+@use '../../scss/abstracts/' as *;
+  
+.btn {
+  display: inline-block;
+  margin: 0px auto;
+  width: 150px;
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: center;
+  color: $primaryColor;
+  background: $brandColor;
+  background: linear-gradient(45deg, $brandSkewColor 0%, $brandColor 100%);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    color: $complementaryColor;
+    background: $brandColor;
+    background: linear-gradient(225deg, $brandSkewColor 0%, $brandColor 100%);
+    transform: scale(1.01);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  svg {
+    font-size: 1.5em;
+  }
+}

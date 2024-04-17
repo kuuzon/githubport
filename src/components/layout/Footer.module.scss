@@ -1,0 +1,15 @@
+@use '../../scss/abstracts/' as *;
+
+// C. Propogation Example 3
+.light {
+  padding: 1rem;
+  text-align: center;
+  color: $primaryColor;
+  background-color: $brandColor;
+}
+
+.dark {
+  @extend .light;
+  color: $primaryColor;
+  background-color: darken($complementaryColor, 3%);
+}

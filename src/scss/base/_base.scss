@@ -1,0 +1,30 @@
+@use '../abstracts/' as *;
+
+body {
+  font-family: $primaryFont; 
+  background: $primaryColor;
+  box-sizing: border-box;
+}
+
+.app {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.appContent {
+  margin: 1rem auto;
+  flex: 1;
+}
+
+// C. Propagation of Theme @ Base Level
+.light {
+  background-color: $primaryColor;
+  color: $complementaryColor;
+}
+
+.dark {
+  background-color: $complementaryColor;
+  color: $primaryColor;
+}
